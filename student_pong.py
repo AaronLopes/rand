@@ -94,29 +94,12 @@ done = False
 clock = pygame.time.Clock()
 
 #create the ball (Hint: Refer to the "Ball" class)
-ball = Ball(5, #radius
-            WHITE, #color
-            randint(0,650), #x-value
-            randint(0,450), #y-value
-            1,   #x-velocity
-            2)   #y-velocity
+
 
 #create the paddles: (Hint: Refer to the "Paddle" class)
-leftpaddle = Paddle(50,#xcor
-                    randint(50,450),#ycor
-                    50,#height
-                    10,#width
-                    WHITE) #color
 
-rightpaddle = Paddle(650,#xcor
-                    randint(50,450),#ycor
-                    50,#height
-                    10,#width
-                    WHITE) #color
 
 #create leftscore and rightscore (Hint: Refer to the "Score" class )
-leftscore = Score(250,25)
-rightscore = Score(400,25)
     
 while not done:
     for event in pygame.event.get(): #Check all the clicks and keystrokes
@@ -138,12 +121,8 @@ while not done:
                 leftpaddle.move = 0 #stop the left paddle
                 
     # --- Game logic should go here (Hint: How do you manipulate "xcor"?)
-    if ball.xcor > 700:
-        ball.xcor = 350
-        leftscore.increaseScore(1)
-    if ball.xcor < 0:
-        ball.xcor = 350
-        rightscore.increaseScore(1)
+  
+
     # --- Drawing code should go here
 
     # First, clear the screen to white. Don't put other drawing commands
@@ -154,19 +133,14 @@ while not done:
     drawNet()
     
     #move the ball (Hint: Use a for loop)
-    for paddle in [leftpaddle, rightpaddle]:
-        ball.move(paddle)
+  
 
     #move the paddles (Hint: Use the draw method)
-    leftpaddle.draw()
-    rightpaddle.draw()
-
+  
     #display the scores (Hint: Refer to the score class)
-    leftscore.displayScore()
-    rightscore.displayScore()
-
+  
     #if one player scores 5 (or whatever max you choose)
-    if leftscore.score == 5 or rightscore.score == 5:
+  
         #start "waiting" for a response
         waiting = True
         while waiting:
