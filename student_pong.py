@@ -93,7 +93,7 @@ done = False
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
 
-#create the ball
+#create the ball (Hint: Refer to the "Ball" class)
 ball = Ball(5, #radius
             WHITE, #color
             randint(0,650), #x-value
@@ -101,7 +101,7 @@ ball = Ball(5, #radius
             1,   #x-velocity
             2)   #y-velocity
 
-#create the paddles:
+#create the paddles: (Hint: Refer to the "Paddle" class)
 leftpaddle = Paddle(50,#xcor
                     randint(50,450),#ycor
                     50,#height
@@ -114,6 +114,7 @@ rightpaddle = Paddle(650,#xcor
                     10,#width
                     WHITE) #color
 
+#create leftscore and rightscore (Hint: Refer to the "Score" class )
 leftscore = Score(250,25)
 rightscore = Score(400,25)
     
@@ -136,7 +137,7 @@ while not done:
             if event.key == K_w or event.key == K_s: #if it's the W or S key:
                 leftpaddle.move = 0 #stop the left paddle
                 
-    # --- Game logic should go here
+    # --- Game logic should go here (Hint: How do you manipulate "xcor"?)
     if ball.xcor > 700:
         ball.xcor = 350
         leftscore.increaseScore(1)
@@ -152,15 +153,15 @@ while not done:
     #draw the net
     drawNet()
     
-    #move the ball
+    #move the ball (Hint: Use a for loop)
     for paddle in [leftpaddle, rightpaddle]:
         ball.move(paddle)
 
-    #move the paddles
+    #move the paddles (Hint: Use the draw method)
     leftpaddle.draw()
     rightpaddle.draw()
 
-    #display the scores
+    #display the scores (Hint: Refer to the score class)
     leftscore.displayScore()
     rightscore.displayScore()
 
